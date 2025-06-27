@@ -2,6 +2,11 @@
 
 This ROS package provides a minimal `read_depth` node for Gocator 2330D laser profiler sensor, migrated from [here](https://github.com/robotsorcerer/gocator).
 
+![image](https://github.com/user-attachments/assets/ba844a1c-acc3-475f-b053-1fd2ddc1a3b2)
+
+https://github.com/user-attachments/assets/cef29ecd-9060-445b-81a0-5137f7ec4431
+
+
 ## Features
 
 - Real-time depth profile data acquisition from Gocator 2330D sensor
