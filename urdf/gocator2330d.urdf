@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<robot name="gocator2330d">
+
+  <material name="black">
+    <color rgba="0.0 0.0 0.0 1.0"/>
+  </material>
+  
+  <!-- Base link for the robot end effector mounting point -->
+  <link name="robot_ee"/>
+  
+  <!-- Gocator bracket mounted to robot end effector -->
+  <joint name="gocator_bracket_joint" type="fixed">
+    <parent link="robot_ee"/>
+    <child link="gocator_bracket"/>
+    <origin xyz="0 0 0.013" rpy="0 0 0"/>
+  </joint>
+  
+  <link name="gocator_bracket">
+    <visual>
+      <origin xyz="-0.0275 -0.075 -0.013" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://gocator_ros/meshes/gocator_2330d/Bracket.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+  
+  <joint name="gocator_mount_joint" type="fixed">
+    <parent link="gocator_bracket"/>
+    <child link="gocator_mount"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  
+  <link name="gocator_mount">
+    <visual>
+      <origin xyz="-0.0245 -0.0817 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://gocator_ros/meshes/gocator_2330d/Gocator.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+  
+  <joint name="gocator_frame_joint" type="fixed">
+    <parent link="gocator_mount"/>
+    <child link="gocator_frame"/>
+    <origin xyz="0 -0.032 0.0615" rpy="0 3.14159 0"/>
+  </joint>
+  
+  <link name="gocator_frame"/>
+</robot>

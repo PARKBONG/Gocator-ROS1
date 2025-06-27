@@ -1,0 +1,20 @@
+<launch>
+    
+    <arg name="rviz" default="True" />
+    <arg name="urdf_file" default="$(find gocator_ros)/urdf/gocator2330d.urdf" />
+
+    <!-- Static transform publishers: tf (1Hz) -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="map_base_tf" args="0 0 0 0 0 0 map robot_base"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_ee_tf" args="0.5 0 0.5 0 3.14159 0 robot_base robot_ee"/> <!-- You need to change here for your own robot -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="ee_bracket_tf" args="0 0 0.013 0 0 0 robot_ee gocator_bracket" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="ee_mount_tf" args="0 0 0.0 0 0 0 robot_ee gocator_mount" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="ee_frame_tf" args="0 -0.032 0.0615 0 3.14159 0 robot_ee gocator_frame"/>
+    
+    <!-- Launch the read_depth node from gocator_ros package -->
+    <node pkg="gocator_ros" type="read_depth" name="gocator_read_depth" output="screen" />
+
+    <group if="$(arg rviz)">
+        <param name="robot_description" textfile="$(arg urdf_file)" />
+        <node pkg="rviz" type="rviz" name="rviz" args="-d $(find gocator_ros)/rviz/gocator2330d.rviz" />
+    </group>
+</launch>
