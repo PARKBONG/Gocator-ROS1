@@ -122,4 +122,4 @@ cloud->points.emplace_back(-x / 1000.0, 0.0, z_new / 1000.0); // x axis is inver
 - Ensure the sensor is properly connected via Ethernet
 - Check firewall settings allow communication on the 192.168.1.0/24 subnet
 - Verify network interface configuration using the provided `set_ip.sh` script
-- All the setting/Congifuration from Chrome(192.168.1.10) web interface will override/affect on this packages. 
+- All the settings/congifurations from Chrome(192.168.1.10) web interface will affect this packages. 
